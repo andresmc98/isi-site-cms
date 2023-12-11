@@ -10,6 +10,8 @@ import Users from './collections/Users'
 import Clubes from './collections/Clubes'
 import Media from './collections/Media'
 import Noticias from './collections/Noticias'
+import Materias from './collections/Materias'
+import Maestros from './collections/Maestros'
 
 export default buildConfig({
   admin: {
@@ -25,10 +27,12 @@ export default buildConfig({
   editor: slateEditor({}),
   collections: [
     Clubes,
+    Maestros,
+    Materias,
     Media,
     Noticias,
     Users,
-    
+
   ],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),
