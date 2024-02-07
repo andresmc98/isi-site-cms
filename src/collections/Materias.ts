@@ -59,6 +59,11 @@ const Materias: CollectionConfig = {
             name: "maestros",
             label: "Maestros",
             type: "text",
+        },
+        {
+            name: 'link_temario',
+            label: 'Link Temario',
+            type: 'text',
         }
     ],
 };

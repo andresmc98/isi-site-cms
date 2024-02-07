@@ -6,26 +6,26 @@ const Noticias: CollectionConfig = {
   slug: 'noticias',
 
   admin: {
-    useAsTitle: 'titulo', 
+    useAsTitle: 'titulo',
   },
  
   access: {
-    //Only admins can create 
+    //Only admins can create
     create: isAdmin,
-    //Everyone can read 
+    //Everyone can read
     read: () => true,
-    //Only admins and editors can update 
+    //Only admins and editors can update
     update: isAdminOrEditor,
-    //Only admins can delete 
+    //Only admins can delete
     delete: isAdmin,
   },
 
   fields: [
     {
-      name: 'titulo', 
-      label: 'Título', 
-      type: 'text', 
-      required: true, 
+      name: 'titulo',
+      label: 'Título',
+      type: 'text',
+      required: true,
     },
     {
       name: 'image',
