@@ -5,13 +5,13 @@ import { isAdminOrEditor } from '../access/isAdminOrEditor';
 export const Media: CollectionConfig = {
   slug: 'media',
   access: {
-    //Only admins can create 
+    //Only admins can create
     create: isAdmin,
-    //Everyone can read 
+    //Everyone can read
     read: () => true,
-    //Only admins and editors can update 
+    //Only admins and editors can update
     update: isAdminOrEditor,
-    //Only admins can delete 
+    //Only admins can delete
     delete: isAdmin,
   },
   upload: {

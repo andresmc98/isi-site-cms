@@ -18,7 +18,8 @@ export default buildConfig({
     user: Users.slug,
     bundler: webpackBundler(),
   },
-  cors: [process.env.PAYLOAD_PUBLIC_SERVER_URL],
+  cors: '*',
+  //cors: [process.env.PAYLOAD_PUBLIC_SERVER_URL],
   rateLimit: {
     trustProxy: true,
     window: 2 * 60 * 1000,
