@@ -12,6 +12,7 @@ import Media from './collections/Media'
 import Noticias from './collections/Noticias'
 import Materias from './collections/Materias'
 import Maestros from './collections/Maestros'
+import Devs from './collections/Devs'
 
 export default buildConfig({
   admin: {
@@ -28,6 +29,7 @@ export default buildConfig({
   editor: slateEditor({}),
   collections: [
     Clubes,
+    Devs,
     Maestros,
     Materias,
     Media,
