@@ -17,6 +17,7 @@ jobs:
       DATABASE_URI: ${{ secrets.DATABASE_URI }}
       PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
       PAYLOAD_PUBLIC_SERVER_URL: ${{ secrets.PAYLOAD_PUBLIC_SERVER_URL }}
+      PORT_PAYLOAD: ${{ secrets.PORT_PAYLOAD }}
 
     steps:
       - name: Checkout repo
@@ -32,6 +33,7 @@ jobs:
           echo "DATABASE_URI=$DATABASE_URI" > .env
           echo "PAYLOAD_SECRET=$PAYLOAD_SECRET" >> .env
           echo "PAYLOAD_PUBLIC_SERVER_URL=$PAYLOAD_PUBLIC_SERVER_URL" >> .env
+          echo "PORT_PAYLOAD=$PORT_PAYLOAD" >> .env
           
       - name: Install Dependencies
         run: npm install
