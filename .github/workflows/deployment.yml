@@ -43,9 +43,12 @@ jobs:
           chmod 600 ~/.ssh/config
           eval "$(ssh-agent -s)"
           ssh-add ~/.ssh/id_ed25519
-      - name: Transfer files to Production
+      - name: Transfer dist files to Production
         run: |
           rsync -rvz --delete --exclude=".git" --exclude="node_modules" ./dist/isi-portal/ unison-isi:/var/www/isi-cms/
+
+      - name: Transfer build files to Production
+        run: |
           rsync -rvz --delete --exclude=".git" --exclude="node_modules" ./build/isi-portal/ unison-isi:/var/www/isi-cms/
           
       - name: SSH to Production
