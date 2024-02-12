@@ -1,0 +1,52 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      BRIDGE_HOSTNAME: ${{ secrets.BRIDGE_HOSTNAME }}
+      PRODUCTION_HOSTNAME: ${{ secrets.PRODUCTION_HOSTNAME }}
+      DEPLOY_USERNAME: ${{ secrets.DEPLOY_USERNAME }}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build:payload
+
+      - name: Build server
+        run: npm run build:server
+      
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          echo -e "Host unison-bridge\n\tHostName $BRIDGE_HOSTNAME\n\tUser $DEPLOY_USERNAME\n\tStrictHostKeyChecking no\n\tUserKnownHostsFile=/dev/null\n\tForwardAgent yes\n" > ~/.ssh/config
+          echo -e "Host unison-isi\n\tHostName $PRODUCTION_HOSTNAME\n\tUser $DEPLOY_USERNAME\n\tProxyJump unison-bridge\n\tStrictHostKeyChecking no\n\tUserKnownHostsFile=/dev/null\n\tForwardAgent yes\n" >> ~/.ssh/config
+          chmod 600 ~/.ssh/config
+          eval "$(ssh-agent -s)"
+          ssh-add ~/.ssh/id_ed25519
+      - name: Transfer files to Production
+        run: |
+          rsync -rvz --delete --exclude=".git" --exclude="node_modules" ./dist/isi-portal/ unison-isi:/var/www/isi-cms/
+          rsync -rvz --delete --exclude=".git" --exclude="node_modules" ./build/isi-portal/ unison-isi:/var/www/isi-cms/
+          
+      - name: SSH to Production
+        run: ssh unison-isi "cd /var/www/isi-cms && rm -rf node_modules"
