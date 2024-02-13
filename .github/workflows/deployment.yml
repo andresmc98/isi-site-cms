@@ -56,7 +56,7 @@ jobs:
           ssh-add ~/.ssh/id_ed25519
       - name: Transfer files to Production
         run: |
-          rsync -rvz --delete --exclude=".git" --exclude="src/media" --exclude="node_modules" ./ unison-isi:/var/www/isi-cms/
+          rsync -rvz --delete --exclude=".git" --exclude="dist/media" --exclude="node_modules" ./ unison-isi:/var/www/isi-cms/
    
       - name: SSH to Production
         run: ssh unison-isi "cd /var/www/isi-cms && npm ci"
