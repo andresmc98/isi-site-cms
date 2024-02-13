@@ -32,8 +32,8 @@ const Devs : CollectionConfig = {
             relationTo: 'media',
         },
         {
-            name: "Puesto",
-            label: "Puesto",
+            name: "rol",
+            label: "Rol",
             type: "text",
         },
         {
