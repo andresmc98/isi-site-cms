@@ -13,6 +13,7 @@ import Noticias from './collections/Noticias'
 import Materias from './collections/Materias'
 import Maestros from './collections/Maestros'
 import Devs from './collections/Devs'
+import Faqs from './collections/Faqs'
 
 export default buildConfig({
   admin: {
@@ -30,6 +31,7 @@ export default buildConfig({
   collections: [
     Clubes,
     Devs,
+    Faqs,
     Maestros,
     Materias,
     Media,

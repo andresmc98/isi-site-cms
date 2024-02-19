@@ -53,23 +53,24 @@ const Maestros: CollectionConfig = {
                         label: 'Cubiculo',
                         type: 'text',
                     },
-                    {
-                        name: 'linkedin',
-                        label: 'Linkedin',
-                        type: 'text',
-                    },
-                    {
-                        name: 'github',
-                        label: 'Github',
-                        type: 'text',
-                    },
-                    {
-                        name: 'pagina_web',
-                        label: 'Pagina Web',
-                        type: 'text',
-                    },
                 ],
-
+        },
+        {
+            name : 'redes_sociales',
+            label: 'Redes Sociales',
+            type: 'array',
+            fields:[
+                {
+                    name: 'nombre_red',
+                    label: 'Nombre Red Social',
+                    type: 'text',
+                },
+                {
+                    name: 'link_red',
+                    label: 'Link Red Social',
+                    type: 'text',
+                },
+            ],  
         },
         {
             name: 'formacion_academica',
