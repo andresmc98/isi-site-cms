@@ -42,6 +42,7 @@ const Maestros: CollectionConfig = {
       label: "Tipo Maestro",
       type: "select",
       index: true,
+      required: true,
       options: [
         { label: "Tronco Comun", value: "tronco-comun" },
         { label: "Tronco Ingenieria", value: "tronco-ing" },
