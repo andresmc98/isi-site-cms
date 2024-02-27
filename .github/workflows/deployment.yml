@@ -28,6 +28,14 @@ jobs:
         with:
           node-version: 20
 
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: latest
+
+      - name: Install dependencies
+        run: pnpm install
+        
       - name: Generate .Env File
         run: |
           echo "DATABASE_URI=$DATABASE_URI" > .env
@@ -35,11 +43,8 @@ jobs:
           echo "PAYLOAD_PUBLIC_SERVER_URL=$PAYLOAD_PUBLIC_SERVER_URL" >> .env
           echo "PORT_PAYLOAD=$PORT_PAYLOAD" >> .env
 
-      - name: Install Dependencies
-        run: npm install
-
       - name: Build server & payload
-        run: npm run build
+        run: pnpm run build
 
       - name: Set up SSH
         run: |
