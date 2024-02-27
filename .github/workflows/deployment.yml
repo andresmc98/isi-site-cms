@@ -34,16 +34,13 @@ jobs:
           echo "PAYLOAD_SECRET=$PAYLOAD_SECRET" >> .env
           echo "PAYLOAD_PUBLIC_SERVER_URL=$PAYLOAD_PUBLIC_SERVER_URL" >> .env
           echo "PORT_PAYLOAD=$PORT_PAYLOAD" >> .env
-          
+
       - name: Install Dependencies
         run: npm install
 
-      - name: Build server
-        run: npm run build:server
+      - name: Build server & payload
+        run: npm run build
 
-      - name: Build project
-        run: npm run build:payload
-  
       - name: Set up SSH
         run: |
           mkdir -p ~/.ssh
@@ -57,6 +54,6 @@ jobs:
       - name: Transfer files to Production
         run: |
           rsync -rvz --delete --exclude=".git" --exclude="dist/media" --exclude="node_modules" ./ unison-isi:/var/www/isi-cms/
-   
+
       - name: SSH to Production
         run: ssh unison-isi "cd /var/www/isi-cms && npm ci"

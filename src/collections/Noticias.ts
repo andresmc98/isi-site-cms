@@ -11,7 +11,7 @@ const Noticias: CollectionConfig = {
  
   access: {
     //Only admins can create
-    create: isAdmin,
+    create: isAdminOrEditor,
     //Everyone can read
     read: () => true,
     //Only admins and editors can update
