@@ -45,6 +45,13 @@ const Noticias: CollectionConfig = {
       required: true,
     },
     {
+      name: 'activa',
+      label: 'Activa',
+      type: 'checkbox',
+      defaultValue: true,
+
+    },
+    {
       name: 'fechaPublicacion',
       label: 'Fecha de Publicación',
       type: 'date',

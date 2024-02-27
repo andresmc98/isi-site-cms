@@ -200,7 +200,7 @@ const Maestros: CollectionConfig = {
           },
         });
         if (maestros.docs.length > 0) {
-          res.status(200).send(maestros.docs[0]);
+          res.status(200).send(maestros.docs);
         } else {
           res.status(404).json({ message: "No se encontraron maestros" });
         }
