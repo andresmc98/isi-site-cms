@@ -4,7 +4,6 @@ import { isAdminOrEditor } from '../access/isAdminOrEditor';
 
 const Faqs: CollectionConfig = {
     slug: 'faqs',
-    
     admin: {
         useAsTitle: 'pregunta',
     },
@@ -44,6 +43,7 @@ const Faqs: CollectionConfig = {
                 { label: 'Materias', value: 'Materias' },
                 { label: 'Practicas Profesionales', value: 'Practicas Profesionales' },
                 { label: 'Servicio Social', value: 'Servicio Social' },
+                { label: 'Otros', value: 'otros' },
             ],
         }
     ],
