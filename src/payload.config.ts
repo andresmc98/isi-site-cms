@@ -14,6 +14,8 @@ import Materias from './collections/Materias'
 import Maestros from './collections/Maestros'
 import Devs from './collections/Devs'
 import Faqs from './collections/Faqs'
+import Tags from './collections/Tags'
+import Autores from './collections/Autores'
 
 export default buildConfig({
   admin: {
@@ -29,6 +31,7 @@ export default buildConfig({
   },
   editor: slateEditor({}),
   collections: [
+    Autores,
     Clubes,
     Devs,
     Faqs,
@@ -36,6 +39,7 @@ export default buildConfig({
     Materias,
     Media,
     Noticias,
+    Tags,
     Users,
 
   ],
