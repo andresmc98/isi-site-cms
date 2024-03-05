@@ -56,5 +56,5 @@ jobs:
         run: |
           rsync -rvz --delete --exclude=".git" --exclude="dist/media" --exclude="node_modules" ./ unison-isi:/var/www/isi-cms/
 
-      - name: SSH to Production
+      - name: SSH to Production and Build
         run: ssh unison-isi "cd /var/www/isi-cms && npm ci && npm run build"
