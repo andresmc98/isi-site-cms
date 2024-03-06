@@ -90,9 +90,16 @@ const Clubes: CollectionConfig = {
                 },
                 {
                     name: 'imagen_servicio',
-                    label: 'Imagen Servicio',
-                    type: 'upload',
-                    relationTo: 'media',
+                    label: 'Imagenes Servicio',
+                    type: 'array',
+                    fields: [
+                        {
+                            name: 'imagen_servicio',
+                            label: 'Imagen Servicio',
+                            type: 'upload',
+                            relationTo: 'media',
+                        }
+                    ]
                 }
             ],
             required: false,
@@ -116,9 +123,16 @@ const Clubes: CollectionConfig = {
                 },
                 {
                     name: 'imagen_proyecto',
-                    label: 'Imagen Proyecto',
-                    type: 'upload',
-                    relationTo: 'media',
+                    label: 'Imagenes Proyecto',
+                    type: 'array',
+                    fields: [
+                        {
+                            name: 'imagen_proyecto',
+                            label: 'Imagen Proyecto',
+                            type: 'upload',
+                            relationTo: 'media',
+                        }
+                    ]
                 }
             ],
             required: false,
