@@ -55,39 +55,22 @@ const Clubes: CollectionConfig = {
             type: 'textarea',
         },
         {
-            name: 'redes_sociales',
-            label: 'Redes Sociales (Solo Links)',
-            type: 'array',
-            maxRows: 1,
-            fields:[
-                    {
-                        name: 'link_fb',
-                        label: 'Facebook',
-                        type: 'text',
-                    },
-                    {
-                        name: 'link_insta',
-                        label: 'Instagram',
-                        type: 'text',
-                    },
-                    {
-                        name: 'link_x',
-                        label: 'X',
-                        type: 'text',
-                    },
-                    {
-                        name: 'github',
-                        label: 'Github',
-                        type: 'text',
-                    },
-                    {
-                        name: 'pagina_web',
-                        label: 'Pagina Web',
-                        type: 'text',
-                    },
-                ],
-
-        },
+            name: "redes_sociales",
+            label: "Redes Sociales",
+            type: "array",
+            fields: [
+              {
+                name: "nombre_red",
+                label: "Nombre Red Social",
+                type: "text",
+              },
+              {
+                name: "link_red",
+                label: "Link Red Social",
+                type: "text",
+              },
+            ],
+          },
         {
             name: 'servicios',
             label: 'Servicios',
@@ -102,15 +85,9 @@ const Clubes: CollectionConfig = {
                 {
                     name : 'descripcion_servicio',
                     label: 'Descripcion Servicio',
-                    type: 'textarea',
+                    type: 'richText',
                     required: true,
                 },
-                {
-                    name: 'imagen_servicio',
-                    label: 'Imagen Servicio',
-                    type: 'upload',
-                    relationTo: 'media',
-                }
             ],
             required: false,
         },
@@ -128,15 +105,9 @@ const Clubes: CollectionConfig = {
                 {
                     name : 'descripcion_proyecto',
                     label: 'Descripcion Proyecto',
-                    type: 'textarea',
+                    type: 'richText',
                     required: true,
                 },
-                {
-                    name: 'imagen_proyecto',
-                    label: 'Imagen Proyecto',
-                    type: 'upload',
-                    relationTo: 'media',
-                }
             ],
             required: false,
         }

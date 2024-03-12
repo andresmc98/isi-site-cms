@@ -8,10 +8,10 @@ const Noticias: CollectionConfig = {
   admin: {
     useAsTitle: 'titulo',
   },
- 
+
   access: {
     //Only admins can create
-    create: isAdmin,
+    create: isAdminOrEditor,
     //Everyone can read
     read: () => true,
     //Only admins and editors can update
@@ -29,19 +29,28 @@ const Noticias: CollectionConfig = {
     },
     {
       name: 'image',
+      label: 'Imagen de Portada',
       type: 'upload',
       relationTo: 'media',
     },
     {
-      name: 'tag',
-      label: 'Tag',
+      name: 'pieDeFoto',
+      label: 'Pie de Foto',
       type: 'text',
-      required: true,
     },
     {
-      name: 'autorPortal',
-      label: 'Autor del Portal',
-      type: 'text',
+      name: 'tag',
+      label: 'Tag',
+      type: 'relationship',
+      relationTo: 'tags',
+      hasMany: true,
+    },
+    {
+      name: 'autor',
+      label: 'Autor de Noticia',
+      type: 'relationship',
+      relationTo: 'autores',
+      hasMany: true,
       required: true,
     },
     {
@@ -57,10 +66,20 @@ const Noticias: CollectionConfig = {
       required: true,
     },
     {
+      name: 'resumen',
+      label: 'Resumen',
+      type: 'textarea',
+    },
+    {
       name: 'contenido',
       label: 'Contenido',
       type: 'richText',
       required: true,
+    },
+    {
+      name: 'fuente',
+      label: 'Fuente (link)',
+      type: 'text',
     },
   ],
 };

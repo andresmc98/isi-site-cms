@@ -6,7 +6,7 @@ export const Media: CollectionConfig = {
   slug: 'media',
   access: {
     //Only admins can create
-    create: isAdmin,
+    create: isAdminOrEditor,
     //Everyone can read
     read: () => true,
     //Only admins and editors can update

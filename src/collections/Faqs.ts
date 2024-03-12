@@ -4,13 +4,12 @@ import { isAdminOrEditor } from '../access/isAdminOrEditor';
 
 const Faqs: CollectionConfig = {
     slug: 'faqs',
-    
     admin: {
         useAsTitle: 'pregunta',
     },
     access: {
         // Only admins can create
-        create: isAdmin,
+        create: isAdminOrEditor,
         // Everyone can read
         read: () => true,
         // Only admins and editors can update
@@ -28,23 +27,15 @@ const Faqs: CollectionConfig = {
         {
             name: 'respuesta',
             label: 'Respuesta',
-            type: 'textarea',
+            type: 'richText',
             required: true,
         },
         {
             name: 'categoria',
             label: 'Categoría',
-            type: 'select',
-            options: [
-                { label: 'Ceneval', value: 'Ceneval' },
-                { label: 'Clubes', value: 'Clubes' },
-                { label: 'Estudiantes', value: 'Estudiantes' },
-                { label: 'General', value: 'General' },
-                { label: 'Maestros', value: 'Maestros' },
-                { label: 'Materias', value: 'Materias' },
-                { label: 'Practicas Profesionales', value: 'Practicas Profesionales' },
-                { label: 'Servicio Social', value: 'Servicio Social' },
-            ],
+            type: 'relationship',
+            relationTo: 'tags',
+            hasMany: true
         }
     ],
 };
