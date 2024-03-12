@@ -127,6 +127,16 @@ const Maestros: CollectionConfig = {
           type: "textarea",
           required: true,
         },
+        {
+          name: "fecha_inicio",
+          label: "Fecha de Inicio",
+          type: "date",
+        },
+        {
+          name: "fecha_fin",
+          label: "Fecha de Fin",
+          type: "date",
+        },
       ],
       required: false,
     },
@@ -144,14 +154,8 @@ const Maestros: CollectionConfig = {
         {
           name: "descripcion_proyecto",
           label: "Descripcion Proyecto",
-          type: "textarea",
+          type: "richText",
           required: true,
-        },
-        {
-          name: "imagen_proyecto",
-          label: "Imagen Proyecto",
-          type: "upload",
-          relationTo: "media",
         },
       ],
       required: false,
@@ -170,14 +174,8 @@ const Maestros: CollectionConfig = {
         {
           name: "descripcion_inv",
           label: "Descripcion Investigacion",
-          type: "textarea",
+          type: "richText",
           required: true,
-        },
-        {
-          name: "imagen_inv",
-          label: "Imagen Investigacion",
-          type: "upload",
-          relationTo: "media",
         },
       ],
       required: false,

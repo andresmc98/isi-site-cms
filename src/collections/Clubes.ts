@@ -85,22 +85,9 @@ const Clubes: CollectionConfig = {
                 {
                     name : 'descripcion_servicio',
                     label: 'Descripcion Servicio',
-                    type: 'textarea',
+                    type: 'richText',
                     required: true,
                 },
-                {
-                    name: 'imagen_servicio',
-                    label: 'Imagenes Servicio',
-                    type: 'array',
-                    fields: [
-                        {
-                            name: 'imagen_servicio',
-                            label: 'Imagen Servicio',
-                            type: 'upload',
-                            relationTo: 'media',
-                        }
-                    ]
-                }
             ],
             required: false,
         },
@@ -118,22 +105,9 @@ const Clubes: CollectionConfig = {
                 {
                     name : 'descripcion_proyecto',
                     label: 'Descripcion Proyecto',
-                    type: 'textarea',
+                    type: 'richText',
                     required: true,
                 },
-                {
-                    name: 'imagen_proyecto',
-                    label: 'Imagenes Proyecto',
-                    type: 'array',
-                    fields: [
-                        {
-                            name: 'imagen_proyecto',
-                            label: 'Imagen Proyecto',
-                            type: 'upload',
-                            relationTo: 'media',
-                        }
-                    ]
-                }
             ],
             required: false,
         }

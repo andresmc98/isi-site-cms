@@ -60,7 +60,7 @@ const Materias: CollectionConfig = {
         {
             name: "requisitos",
             label: "Requisitos",
-            type: "text",
+            type: "richText",
             required: false,
         },
         {
