@@ -27,24 +27,15 @@ const Faqs: CollectionConfig = {
         {
             name: 'respuesta',
             label: 'Respuesta',
-            type: 'textarea',
+            type: 'richText',
             required: true,
         },
         {
             name: 'categoria',
             label: 'Categoría',
-            type: 'select',
-            options: [
-                { label: 'Ceneval', value: 'Ceneval' },
-                { label: 'Clubes', value: 'Clubes' },
-                { label: 'Estudiantes', value: 'Estudiantes' },
-                { label: 'General', value: 'General' },
-                { label: 'Maestros', value: 'Maestros' },
-                { label: 'Materias', value: 'Materias' },
-                { label: 'Practicas Profesionales', value: 'Practicas Profesionales' },
-                { label: 'Servicio Social', value: 'Servicio Social' },
-                { label: 'Otros', value: 'otros' },
-            ],
+            type: 'relationship',
+            relationTo: 'tags',
+            hasMany: true
         }
     ],
 };
